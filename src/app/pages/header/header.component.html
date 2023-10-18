@@ -1,0 +1,77 @@
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-2">
+        <ul class="headUl">
+          <li class="LiFaceBook"><a target="_blank"
+              href="https://www.facebook.com/Culture-Gate-103834857931056/?__tn__=%2Cd%2CP-R&eid=ARCqmJ0rfdS5oaPqLjtfFvrs8qCzM53J-MI_hROHKC54CPe-Qlvm6fAhL_vbUtnvnqWXNDt4YgTpxezm"><i
+                class="fa fa-facebook"></i></a></li>
+          <li><a target="_blank" href="https://www.youtube.com/channel/UCGw9Yn-_j6CpysvnhVUeT4w/about"><i
+                class="fa fa-youtube"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-8 col-8" style="text-align: center">
+        <h1 class="headTitle">الثقافة بين إيديك</h1>
+      </div>
+
+      <div class="col-md-2 col-2 imgD">
+        <img (click)="active('1')" [routerLink]="'videos'" src="../../../assets/final-03.png" class="img-fluid">
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <span class="arrowD">
+        <i class="fa fa-bars"></i>
+      </span>
+    </button>
+  <div class="container">
+    <div class="navbar-collapse collapse" id="navbar10">
+        <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+                <a class="nav-link " (click)="active('2')"  [ngClass]="{
+                  'unActive' : ActiveID === 1 ,
+                  'active' : ActiveID === 2 
+              }"
+                 [routerLink]="'vid'">فيديوهات</a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link unActive " href="http://museums.cg.eg/" target="_blank">متاحف</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active "  [routerLink]="'videos'" (click)="active('1')" [ngClass]="{
+              'unActive' : ActiveID === 2 ,
+              'active' : ActiveID === 1 
+          }"
+          >كتب</a>
+          </li>
+
+        </ul>
+  </div>
+</div>  
+  
+</nav>
+
+<button id="myModala" data-toggle="modal" data-target="#myModalOnLoad" style="display: none">click</button>
+
+<div class="modal fade homepage-popup" id="myModalOnLoad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <img src="../../../assets/final-03.png" style="width:200px" alt="">
+        <h1>بث تجريبي</h1>
+        <div class="progress">
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

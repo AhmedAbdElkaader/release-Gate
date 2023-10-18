@@ -1,0 +1,45 @@
+<div class="mainDiv">
+    <div class="container">
+        <div class="row formStyle">
+            <div class="col-md-12 inputControl">
+                <input [formControl]="queryField" placeholder="ابحث عن الفيديو" [(ngModel)]="name" name="name"
+                    type="text" class="form-control inputSearch">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <div class="row flex-row-reverse latestsBooks"  *ngIf="showHightLighted">
+            <div style="cursor: pointer ;" class="col-md-4 col-12" *ngFor="let item of latestsvideos; let i = index">
+                <div class="card cardAgin" *ngIf="i < 3">
+                    <img src="{{item.Image}}" class="img-responsive">
+                    <div>
+                        <h3 (click)="goToDet(item.Id)" [ngClass]="{'headerh3': item.Name.length > 30}">
+                            {{item.Name}}
+                        </h3>
+                    </div>
+                    <div class="lastBook">
+                        <h6>أبرز الفيديوهات</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-results" infiniteScroll [infiniteScrollDistance]="3" [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()">
+            <div class="row">
+                <div class="col">
+                    <div class="row flex-row-reverse">
+                        <div (click)="goToDet(item.Id)" style="cursor: pointer ;" class="col-md-4 col-12" *ngFor="let item of Arr">
+                            <div class="card" >
+                                <img src="{{item.Image}}" class="img-responsive">
+                                <div>
+                                    <h3 (click)="goToDet(item.Id)" [ngClass]="{'headerh3': item.Name.length > 30}">
+                                        {{item.Name}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

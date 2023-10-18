@@ -1,0 +1,62 @@
+<!-- <div class="container">
+    <p *ngIf="showErorr">لقد حدث خطأ اعد المحاولة</p>
+    <div class="formStyle" *ngIf="!showMasg">
+        <div class="row">
+            <div class="col-6 offset-3 formParent">
+                <h3>بادر بحجز نسختك</h3>
+                <form #myForm="ngForm">
+                    <div class="text-right formChild" *ngFor="let item of FormArr ; let index = index">
+                        <div class="form-group">
+                            <label>: {{item.Name}}</label>
+                            <input type="{{item.DataType}}" placeholder="{{item.Name}}" 
+                                   class="form-control text-right" [(ngModel)]="item.Name" 
+                                   pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                [required]="item.isMandotry" name="{{item.Name}}" #formNameTest="ngModel" >
+
+                                <div *ngIf="formNameTest.errors.pattern">
+                                        Email is invalid
+                                    </div>
+                        </div>
+                        
+                    </div>
+                    <button class="btn btn-primary form-control" (click)="getForm(myForm.form.value)"
+                        [disabled]="!myForm.form.valid">إرسال</button>
+                </form>
+                
+            </div>
+        </div>
+    </div> -->
+
+<div class="container">
+    <p *ngIf="showErorr">لقد حدث خطأ اعد المحاولة</p>
+    <div class="formStyle" *ngIf="!showMasg">
+        <div class="row">
+            <div class="col-6 offset-3 formParent">
+                <h3>بادر بحجز نسختك</h3>
+                <form [formGroup]="bookForm" >
+                    <div class="text-right formChild" *ngFor="let item of FormArr ; let index = index">
+                        <div class="form-group">
+                            <label>: {{item.Name}}</label>
+                            <input type="{{item.DataType}}" class="form-control text-right"
+                            formControlName="{{item.control}}" placeholder="{{item.Name}}" >                                                 
+                        </div>
+                    </div>
+                    <button class="btn btn-primary form-control" (click)="getForm()"
+                    [disabled]="!bookForm.valid">إرسال</button>
+               
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main" *ngIf="showMasg">
+        <div class="masg">
+            <h1>لقد تم إرسال طلبك</h1>
+        </div>
+    </div>
+</div>
+
+
+<ngx-spinner></ngx-spinner>
